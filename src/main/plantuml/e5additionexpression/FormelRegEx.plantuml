@@ -1,4 +1,0 @@
-@startregex
-title Formel für Addition
-[0-9]+([+][0-9])*=
-@endregex

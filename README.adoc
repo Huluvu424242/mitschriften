@@ -1,20 +1,20 @@
 [#status]
 image:https://img.shields.io/badge/License-MIT%202023-blue.svg?style=plastic[link="http://www.opensource.org/licenses/mit-license.php"]
-image:https://img.shields.io/github/v/tag/Huluvu424242/fluent-builder.example?include_prereleases&style=plastic[GitHub tag (latest SemVer pre-release), link="https://github.com/Huluvu424242/fluent-builder.example/releases"]
-image:https://img.shields.io/github/downloads/Huluvu424242/fluent-builder.example/latest/total?style=plastic[GitHub release (latest by date), link="https://github.com/Huluvu424242/fluent-builder.example/packages/181948/versions"]
-image:https://maven-badges.herokuapp.com/maven-central/com.github.huluvu424242/fluent-builder.example/badge.svg?style=plastic["Maven Central", link="https://maven-badges.herokuapp.com/maven-central/com.github.huluvu424242/fluent-builder.example"]
-image:https://travis-ci.org/Huluvu424242/fluent-builder.example.svg?branch=master["Build Status", link="https://travis-ci.org/Huluvu424242/fluent-builder.example"]
-image:https://codecov.io/gh/Huluvu424242/fluent-builder.example/branch/master/graph/badge.svg[link="https://codecov.io/gh/Huluvu424242/fluent-builder.example"]
-image:https://sonarcloud.io/api/project_badges/measure?project=Huluvu424242_fluent-builder.example&metric=alert_status[Quality Gate Status, link="https://sonarcloud.io/summary/new_code?id=Huluvu424242_fluent-builder.example"]
-image:http://images.webestools.com/buttons.php?frm=2&btn_type=11&txt=Scrum Board["Scrum Board,scaledwidth="15%"", link="https://github.com/Huluvu424242/fluent-builder.example/projects/1"]
+image:https://img.shields.io/github/v/tag/Huluvu424242/mitschriften?include_prereleases&style=plastic[GitHub tag (latest SemVer pre-release), link="https://github.com/Huluvu424242/mitschriften/releases"]
+image:https://img.shields.io/github/downloads/Huluvu424242/mitschriften/latest/total?style=plastic[GitHub release (latest by date), link="https://github.com/Huluvu424242/mitschriften/packages/181948/versions"]
+image:https://maven-badges.herokuapp.com/maven-central/com.github.huluvu424242/mitschriften/badge.svg?style=plastic["Maven Central", link="https://maven-badges.herokuapp.com/maven-central/com.github.huluvu424242/mitschriften"]
+image:https://travis-ci.org/Huluvu424242/mitschriften.svg?branch=master["Build Status", link="https://travis-ci.org/Huluvu424242/mitschriften"]
+image:https://codecov.io/gh/Huluvu424242/mitschriften/branch/master/graph/badge.svg[link="https://codecov.io/gh/Huluvu424242/mitschriften"]
+image:https://sonarcloud.io/api/project_badges/measure?project=Huluvu424242_mitschriften&metric=alert_status[Quality Gate Status, link="https://sonarcloud.io/summary/new_code?id=Huluvu424242_mitschriften"]
+image:http://images.webestools.com/buttons.php?frm=2&btn_type=11&txt=Scrum Board["Scrum Board,scaledwidth="15%"", link="https://github.com/Huluvu424242/mitschriften/projects/1"]
 
 image:https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=plastic["standard-readme compilant",link="https://github.com/RichardLitt/standard-readme"]
 
 
-#Fluent Builder Example
+== Mitschriften
 
 
-## Projekt Erzeugung
+=== Projekt Erzeugung
 
 1. gitignore erstellen
     * https://www.toptal.com/developers/gitignore/api/windows,linux,intellij+all,eclipse,maven,java,git
@@ -23,7 +23,7 @@ image:https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style
    <project>
       <modelVersion>4.0.0</modelVersion>
       <groupId>com.github.huluvu424242</groupId>
-      <artifactId>fluent-builder.example</artifactId>
+      <artifactId>mitschriften</artifactId>
       <version>1</version>
     </project>
     ```
