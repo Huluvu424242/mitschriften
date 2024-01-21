@@ -1,0 +1,7 @@
+Im Vorkurs VK91 an der TH "Carl Schorlemmer" in Merseburg fand ich ein paar Definitionen, welche mir nützlich erschienen.
+
+[plantuml,"{generateddir}/MatheDefinitionen",svg]
+.Mathe Definitionen
+----
+include::plantuml/Definitionen.plantuml[]
+----

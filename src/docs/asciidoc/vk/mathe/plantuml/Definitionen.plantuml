@@ -1,0 +1,12 @@
+@startuml
+:<math>root(n)(a^m)=b</math>;
+note right
+Wurzel so dass gilt:
+ <math>b^n = a^m</math>
+mit:
+<math>a>=0 ^^ a in RR</math>
+<math>b>=0 ^^ b in RR</math>
+<math>n>=1 ^^ n in NN</math>
+<math>m in ZZ</math>
+end note
+@enduml
