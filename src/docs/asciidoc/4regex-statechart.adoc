@@ -1,0 +1,90 @@
+== Beispiel RegEx Statechart Builder
+
+In den folgenden Abschnitten möchte ich nun das Konzept der FluentBuilder auf Statecharts anwenden. Zunächst möchte ich
+einen sehr einfachen Zustandsautomaten zur Addition verwenden. Dieser Zustandsautomat lässt sich über folgenden
+regulären Ausdruck beschreiben:
+
+[regex, RegEx für Formel zur Addition]
+.Formel für Addition als RegExfootnote:[Quelle regex101: https://regex101.com/r/9Bviwn/1]
+----
+/^[0-9]+(\+[0-9])+=/gm
+----
+
+Der Ausdruck soll wie folgt interpretiert werden: Es kann eine Zahl eingegeben werden und zu dieser Zahl können
+beliebige Zahlen addiert werden. Erst wenn ein Gleichheitszeichen eingegeben wird, soll die Formel enden und
+das Ergebnis der Addition vom Interpreter bereitgestellt werden.
+
+[plantuml,"{generateddir}/FormelRegEx",svg]
+.Syntaxdiagramm zur Formel für Addition
+----
+include::plantuml/FormelRegEx.plantuml[]
+----
+
+Dieser Syntaxgraph lässt sich durch einen deterministischen, endlichen Zustandsautomaten realisieren, welcher in folgendem Diagramm dargestellt wird.
+
+[plantuml,"{generateddir}/StateChartAddition",svg]
+.StateChart zur Formel für Addition
+----
+include::plantuml/StateChartAddition.plantuml[]
+----
+
+Da es sich bei dem Automaten um die Implementierung eines regulären Ausdruckes handelt,
+befinden wir uns in der https://de.wikipedia.org/wiki/Chomsky-Hierarchie[Chomsky-Hierarchie] auf der Ebene regulärer Sprachen, welche dem Chomsky Typ-3 entsprechen.
+
+:quelleWikipedia: footnote:[Quelle Wikipedia: https://de.wikipedia.org/wiki/Chomsky-Hierarchie#%C3%9Cbersicht]
+
+[cols="1,1,1"]
+.Chomsky Hierarchie{quelleWikipedia}
+[%autowidth]
+|===
+| Grammatik | Sprachen | Automaten
+
+|**Typ-0** Beliebige formale Grammatik
+|rekursiv aufzählbar (nicht „nur“ rekursiv, die wären entscheidbar!)
+|Turingmaschine (egal ob deterministisch oder nicht-deterministisch)
+
+|**Typ-1** Kontextsensitive Grammatik
+|kontextsensitiv
+|linear platzbeschränkte nichtdeterministische Turingmaschine
+
+|**Typ-2** Kontextfreie Grammatik
+|kontextfrei
+|nichtdeterministischer Kellerautomat
+
+|**Typ-3** Reguläre Grammatik
+|regulär
+|Endlicher Automat (egal ob deterministisch oder nicht-deterministisch)
+|===
+
+Eine mögliche Implementierung des Builders wird im folgenden dargestellt.
+
+[source,java]
+.AdditionFormulaBuilder.java
+----
+include::../../main/java/com/github/huluvu424242/e4additionexpression/AdditionFormulaBuilder.java[lines=28..-1]
+----
+
+[source,java]
+.FormulaStates.java
+----
+include::../../main/java/com/github/huluvu424242/e4additionexpression/FormulaStates.java[lines=28..-1]
+----
+
+[source,java]
+.FormulaContext.java
+----
+include::../../main/java/com/github/huluvu424242/e4additionexpression/FormulaContext.java[lines=28..-1]
+----
+
+Im folgenden noch eine Testklasse um zu zeigen wie der Builder benutzt werden kann.
+
+[source,java]
+.AdditionFormulaBuilderTest.java
+----
+include::../../test/java/com/github/huluvu424242/e4additionexpression/AdditionFormulaBuilderTest.java[lines=28..-1]
+----
+
+
+
+
+Wieder zur xref:index.adoc[Übersicht] oder zurück zum xref:3plantum-example.adoc[Beispiel der Plantuml Diagrammerstellung].

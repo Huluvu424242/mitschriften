@@ -1,0 +1,17 @@
+name: Verify PR Commit
+on:
+  pull_request:
+  workflow_dispatch: {}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    name: Verify commit
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: chainguard-dev/actions/setup-gitsign@main
+      - shell: bash
+        run: |
+          gitsign verify --certificate-identity-regexp="^.*@chainguard.dev$" --certificate-oidc-issuer="https://token.actions.githubusercontent.com"
+#          gitsign verify --certificate-identity-regexp="^.*@chainguard.dev$" --certificate-oidc-issuer="https://accounts.google.com"

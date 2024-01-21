@@ -1,0 +1,25 @@
+## Lombok Beispiel
+
+Zunächst möchte ich ein kurzes Beispiel geben, für einen typischen Builder welcher mit Lombok erstellt wurde.
+Der Source Code des Builders ist nur über das Delombok Feature sichtbar, er wird normalerweise nicht generiert.
+Daher zeige ich hier nur die annotierte Domain Klasse Person und den Unittest welche den PersonBuilder nutzt.
+
+
+[source,java]
+.Person.java
+----
+include::../../main/java/com/github/huluvu424242/e1person/Person.java[lines=28..-1]
+----
+
+Die Builderklasse Person.PersonBuilder erlaubt es auf einfache Weise
+Instanzen der Klasse Person zu erzeugen. Wobei die Reihenfolge in der
+die Attribute der Instanz belegt werden keine Rolle spielt.
+Ein Beispiel stellt folgender Test dar:
+
+[source,java]
+.PersonBuilderTest.java
+----
+include::../../test/java/com/github/huluvu424242/e1person/PersonBuilderTest.java[lines=28..-1]
+----
+
+Weiter zum xref:2states-example.adoc[Beispiel mit Zuständen] oder zurück zur xref:0motivation.adoc[Motivation].

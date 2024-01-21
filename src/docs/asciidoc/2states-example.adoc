@@ -1,0 +1,45 @@
+== Beispiel mit Zuständen
+
+Nun folgt ein einfaches Beispiel in dem alles selbstgestrickt und über innere Klassen gelöst wurde.
+Ein wesentlicher Nachteil, ist die viele Schreibarbeit und die schlechte Lesbarkeit, da alles in einer Klasse steht.
+Theoretisch lässt sich die Schreibarbeit über Annotationsprozessoren lösen aber wenn man dies selbst tun möchte ohne direkte Bytecode Manipulationen zu nutzen, dann darf man die annotierte Klasse nicht ändern sondern nur die Generate.
+Daher gefällt mit die folgende Lösung nicht, auch wenn sie tut was sie soll.
+
+[source,java]
+.StagedPerson.java
+----
+include::../../main/java/com/github/huluvu424242/e2astagedperson/StagedPerson.java[lines=28..-1]
+----
+
+Viel besser gelungen ist mir die folgende Lösung.
+Hier wurde sämtliche Builderlogik in separate Klassen ausgelagert und dadurch sollte sich hier der Einsatz von Annotation Prozessoren deutlich mehr lohnen. Eine Unschönheit besitzt aber auch diese Lösung. Um die im Aufbau befindliche
+Instanz von einer Stage zur nächsten zu übertragen, ist der Aufruf einer Methode notwendig. Der Name dieser Methode
+würde sich normalerweise nach dem Klassennamen des aufzubauenden Objektes richten z.B. getPerson. Der Name würde dann
+auch der korrekten Semantik entsprechen. Da aber über diese Methode das aufzubauende Objekt zugänglich gemacht wird,
+würde eine getPerson() Methode aber einen Getter darstellen und somit das Builder Pattern verletzen. Beim Builder
+Pattern gibt es nur eine Methode, welche das aufzubauende Objekt zurückgeben darf und das ist die build() Methode.
+Daher wurde die Methode auch so benannt.
+
+Leider muss diese build() Methode nun intern beim Stage Wechsel benutzt werden um das bisher erstellte Objekt weiter
+zu geben. Das ist die Unschönheit an dieser Lösung.
+
+[source,java]
+.LegacyPerson.java
+----
+include::../../main/java/com/github/huluvu424242/e2blegacyperson/LegacyPerson.java[lines=28..-1]
+----
+
+[source,java]
+.LegacyPersonBuilder.java
+----
+include::../../main/java/com/github/huluvu424242/e2blegacyperson/LegacyPersonBuilder.java[lines=28..-1]
+----
+
+[source,java]
+.BuilderStages.java
+----
+include::../../main/java/com/github/huluvu424242/e2blegacyperson/BuilderStages.java[lines=28..-1]
+----
+
+Weiter zum xref:3plantum-example.adoc[Beispiel der Plantuml Diagrammerstellung]
+oder zurück zum xref:1lombokExample.adoc[Lombok Beispiel].

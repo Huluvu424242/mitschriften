@@ -1,0 +1,19 @@
+## Motivation
+
+Wer heute Domain Objekte modelliert und in Java davon Instanzen erzeugen will, kann dies sehr einfach
+mit dem Framework Lombok tun. Die Klasse des Domain Objektes wird mit Annotationen versehen und
+Lombok baut aus diesen Informationen eine Builderklasse über die dann programmatisch Instanzen des
+Domain Objektes erzeugt werden können.
+
+Technisch gesehen realisiert Lombok hierbei das Builder Pattern und stellt Builder Methoden zum Setzen
+der einzelnen Attribute der späteren Instanz bereit. Jede Methode gibt wieder das Builderobjekt
+zurück, so dass ganz im Sinne eines Fluent Interfaces die Aufrufe verkettet und damit schön
+lesbar gestaltet werden können.
+
+Ein Aspekt spielt bisher beim Builder Pattern aber keine beachtenswerte Rolle: Die Reihenfolge in der
+die Werte der Attribute zugewiesen werden. Möchte man Sicherstellen, dass die Attribute per Builder
+nur in einer bestimmten Reihenfolge belegt werden können, so muss man sich etwas eigenes ausdenken.
+Genau das habe ich getan und möchte es im Folgende kurz beschreiben.
+
+Weiter zum xref:1lombokExample.adoc[Lombok Beispiel].
+
